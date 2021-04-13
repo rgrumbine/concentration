@@ -2,7 +2,7 @@
 
 # Bring the various environment-sensitive definitions out of J jobs and to here:
 #NCO refers to these as 'job card' variables
-if [ -z $LMOD_FAMILY_COMPILER ] ; then
+if [ -z $PE_LIBSCI_GENCOMPS_INTEL_x86_64 ] ; then
   module load ips/19.0.5.281 impi/19.0.5
   module load prod_envir/1.1.0
   module load prod_util/1.1.5
