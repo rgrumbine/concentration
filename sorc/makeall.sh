@@ -3,6 +3,9 @@
 #22 December 2016
 
 
+#acorn
+    source /apps/prod/lmodules/startLmod
+
 module list > /dev/null 2> /dev/null
 if [ $? -ne 0 ] ; then
 #On a system without the module software
@@ -25,17 +28,33 @@ else
   module load seaice_analysis/4.4.0
   if [ $? -ne 0 ] ; then
     echo some problem trying to load seaice_analysis/4.4.0
+    #phase3:
     #NCO Compilation modules
-    module load EnvVars/1.0.3 ips/19.0.5.281  impi/19.0.5
+    #module load EnvVars/1.0.3 ips/19.0.5.281  impi/19.0.5
     #NCO build libraries for grib, bufr, ...
-    module load w3nco/2.2.0 w3emc/2.4.0
-    module load bacio/2.0.3
-    module load libpng/1.2.59
-    module load jasper/1.900.29
-    module load g2/3.2.0
+    #module load w3nco/2.2.0 w3emc/2.4.0
+    #module load bacio/2.0.3
+    #module load libpng/1.2.59
+    #module load jasper/1.900.29
+    #module load g2/3.2.0
+    #module load zlib/1.2.11
+    #module load bufr/11.3.1
+    #module load NetCDF/4.5.0
+    #acorn:
+    module avail 2> avail.1
+    module load envvar/1.0
+    module load PrgEnv-intel
+    module load intel/19.1.3.304
+    module load intel/19.1.3.304/cray-mpich/8.1.2
+    module load w3nco/2.4.1
+    module load w3emc/2.7.3
+    module load bacio bufr g2
+    module load libpng/1.6.37 
     module load zlib/1.2.11
-    module load bufr/11.3.1
-    module load NetCDF/4.5.0
+    module load jasper/2.0.16
+    module load netcdf/4.7.4
+    module avail 2> avail.2
+
 
   fi
   module list
