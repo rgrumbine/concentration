@@ -12,7 +12,7 @@
 #####
 
 
-set -e
+#set -e
 #debug env > env.10 2> env.20
 #acorn
     source /apps/prod/lmodules/startLmod
@@ -33,7 +33,9 @@ module purge
     module load envvar/1.0
     module load PrgEnv-intel
     module load intel/19.1.3.304
-    module load intel/19.1.3.304/cray-mpich/8.1.2
+    module load intel/19.1.3.304/cray-mpich/8.1.4
+    module load prod_envir
+    module load prod_util
     #module load bacio bufr g2
     #module load libpng/1.6.37
     #module load zlib/1.2.11
@@ -45,7 +47,8 @@ echo zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz done loading modules zzzzzzzzzzzzzzzzzz
 
 # Bring the various environment-sensitive definitions out of J jobs and to here:
 #NCO refers to these as 'job card' variables
-set -xe
+#set -xe
+set -x
 
 tagm=20210324
 tag=20210325
@@ -56,8 +59,8 @@ export seaice_analysis_ver=v4.4.0
 export HOMEseaice_analysis=$HOMEbase/seaice_analysis.${seaice_analysis_ver}
 
 #Use this to override system in favor of my archive:
-export DCOMROOT=/u/Robert.Grumbine/save/
-export RGTAG=prod
+export DCOMROOT=/u/Robert.Grumbine/save/dcom
+export RGTAG=""
 export my_archive=true
 
 cd $HOMEseaice_analysis/ecf

@@ -46,7 +46,8 @@ if [ "$envir" = 'prod' ] || [ "$envir" = 'para' ] || [ "$envir" = 'test' ] ; the
 else
   #developer
   export COMROOT=/u/Robert.Grumbine/noscrub/com/
-  export DATAROOT=/gpfs/dell2/ptmp/wx21rg/
+  #export DATAROOT=/gpfs/dell2/ptmp/wx21rg/
+  export DATAROOT=~/scratch/
   export HOMEbase=/u/Robert.Grumbine/rgdev
   export jlogfile=/u/Robert.Grumbine/jlogfile
   export PCOMROOT=/u/Robert.Grumbine/noscrub/pcom/$RUN

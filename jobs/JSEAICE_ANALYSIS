@@ -1,6 +1,7 @@
 #!/bin/sh
 
-set -xae
+#set -xae
+set -xa
 # #### 05/18/99 #############################
 # SETUP SEAICE CONCENTRATION ANALYSIS PROCESSING CONTROL SHELL VARIABLES
 # ###########################################
