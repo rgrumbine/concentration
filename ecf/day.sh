@@ -1,5 +1,6 @@
 #!/bin/bash --login
 
+tag=20210323
 export tag=${tag:-`date +"%Y%m%d"`}
 tagm=`expr $tag - 1`
 export tagm=`/u/Robert.Grumbine/bin/dtgfix3 $tagm`
@@ -9,14 +10,33 @@ echo initial tag date = $tag
 #-----------------------------------------------------------------------------
 set -e
 echo zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz loading modules zzzzzzzzzzzzzzzzzzzzzzz
+#acorn
+  source /apps/prod/lmodules/startLmod
+
 #. /usrx/local/Modules/3.2.10/init/bash
 module purge
-module load ips/19.0.5.281 impi/19.0.5
-module load prod_envir/1.1.0
-module load prod_util/1.1.5 
-module load grib_util/1.1.1
-module load bufr_dumplist/2.3.0
-module load dumpjb/5.1.0
+#acorn
+module load envvar/1.0
+module load PrgEnv-intel
+module load intel/19.1.3.304
+module load intel/19.1.3.304/cray-mpich/8.1.4
+module load prod_util/2.0.3
+module load w3nco/2.4.1
+module load w3emc/2.7.3
+module load bacio bufr g2
+module load libpng/1.6.37
+module load zlib/1.2.11
+module load jasper/2.0.16
+module load netcdf/4.7.4
+module load imagemagick
+#wcoss
+#module load ips/19.0.5.281 impi/19.0.5
+#module load prod_envir/1.1.0
+#module load prod_util/1.1.5 
+#module load grib_util/1.1.1
+#module load bufr_dumplist/2.3.0
+#module load dumpjb/5.1.0
+
 module list
 echo zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz done loading modules zzzzzzzzzzzzzzzzzz
 
