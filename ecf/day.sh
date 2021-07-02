@@ -12,8 +12,6 @@ set -e
 echo zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz loading modules zzzzzzzzzzzzzzzzzzzzzzz
 #acorn
   source /apps/prod/lmodules/startLmod
-
-#. /usrx/local/Modules/3.2.10/init/bash
 module purge
 #acorn
 module load envvar/1.0
@@ -23,6 +21,7 @@ module load intel/19.1.3.304/cray-mpich/8.1.4
 module load prod_util/2.0.3
 module load w3nco/2.4.1
 module load w3emc/2.7.3
+module load wgrib2/2.0.8
 module load bacio bufr g2
 module load libpng/1.6.37
 module load zlib/1.2.11
@@ -30,6 +29,7 @@ module load jasper/2.0.16
 module load netcdf/4.7.4
 module load imagemagick
 #wcoss
+#  #. /usrx/local/Modules/3.2.10/init/bash
 #module load ips/19.0.5.281 impi/19.0.5
 #module load prod_envir/1.1.0
 #module load prod_util/1.1.5 
@@ -48,6 +48,14 @@ set -xe
 export HOMEbase=/u/Robert.Grumbine/rgdev
 export seaice_analysis_ver=v4.4.0
 export HOMEseaice_analysis=$HOMEbase/seaice_analysis.${seaice_analysis_ver}
+
+############
+#Use this to override system in favor of my archive:
+export DCOMROOT=/u/Robert.Grumbine/save/dcom
+export RGTAG=""
+export my_archive=true
+export COMINsst_base=/u/Robert.Grumbine/save/sst/prod/sst
+##########
 
 cd $HOMEseaice_analysis/ecf/
 . ./jobcards
